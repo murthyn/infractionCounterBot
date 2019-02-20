@@ -51,12 +51,19 @@ class InfractionClient(Client):
             client.send(Message(text="👀"), thread_id=thread_id, thread_type=thread_type)
         elif "bitch" in message_object.text.lower() and str(author_id) != my_id:
             client.sendLocalImage(
-                "images/cute.jpg",
+                "images/bitch.jpg",
                 message=Message(text="listen here you little bitch"),
                 thread_id=thread_id,
                 thread_type=thread_type,
             )
-        elif ("wholesome" in message_object.text.lower() or "cute" in message_object.text.lower()) and str(author_id) != my_id:
+        elif "cute" in message_object.text.lower() and str(author_id) != my_id:
+            client.sendLocalImage(
+                "images/cute.jpg",
+                message=Message(text="listen here you little cutie"),
+                thread_id=thread_id,
+                thread_type=thread_type,
+            )
+        elif ("wholesome" in message_object.text.lower()) and str(author_id) != my_id:
             r = requests.get("https://dog.ceo/api/breeds/image/random")
             client.sendRemoteImage(
                 r.json()["message"],

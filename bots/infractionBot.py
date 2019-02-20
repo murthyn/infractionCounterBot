@@ -2,9 +2,10 @@
 
 from fbchat import Client
 from fbchat.models import *
-import json
+import json, requests
 
 thread_id = "1599716096804784"
+my_id = "100034187558820"
 thread_type = ThreadType.GROUP
 
 with open("infractions.json") as infractionsDB:
@@ -35,28 +36,36 @@ class InfractionClient(Client):
                     infractions[chatter] -= 1
             client.send(Message(text=str(infractions)), thread_id=thread_id, thread_type=thread_type)
             writeInfractionsToFile()
-        elif ("infraction" in message_object.text or "Infraction" in message_object.text) and str(author_id) != "100033965962382":
+        elif ("infraction" in message_object.text or "Infraction" in message_object.text) and str(author_id) != my_id:
             client.send(Message(text="I like it when my friends remember me :)"), thread_id=thread_id, thread_type=thread_type)
-        elif ("guideline" in message_object.text or "Guideline" in message_object.text) and str(author_id) != "100033965962382":
+        elif ("guideline" in message_object.text.lower()) and str(author_id) != my_id:
             client.send(Message(text="""*community guidelines*
-                    - First and foremost, fair usage applies so no spamming. 
-                    - Be discretionary while giving strikes. Remember, power is linearly correlated with responsibility - Spiderman 
-                    - Remove strikes if the other person does something nice."""), thread_id=thread_id, thread_type=thread_type)
+- First and foremost, fair usage applies so no spamming. 
+- Be discretionary while giving strikes. Remember, power is linearly correlated with responsibility - Spiderman 
+- Remove strikes if the other person does something nice."""), thread_id=thread_id, thread_type=thread_type)
         elif "rip" in message_object.text or "RIP" in message_object.text:
             client.send(Message(text="F"), thread_id=thread_id, thread_type=thread_type)
-        elif ("sad" in message_object.text or "SAD" in message_object.text) and str(author_id) != "100033965962382":
+        elif ("sad" in message_object.text.lower()) and str(author_id) != my_id:
             client.send(Message(text="this is so sad alexa play despacito\nhttps://www.youtube.com/watch?v=kJQP7kiw5Fk"), thread_id=thread_id, thread_type=thread_type)
-        elif "👀" in message_object.text and str(author_id) != "100033965962382":
+        elif "👀" in message_object.text and str(author_id) != my_id:
             client.send(Message(text="👀"), thread_id=thread_id, thread_type=thread_type)
-        elif "cute" in message_object.text.lower() and str(author_id) != "100033965962382":
+        elif "bitch" in message_object.text.lower() and str(author_id) != my_id:
             client.sendLocalImage(
                 "images/cute.jpg",
-                message=Message(text="awww you too!! <3"),
+                message=Message(text="listen here you little bitch"),
+                thread_id=thread_id,
+                thread_type=thread_type,
+            )
+        elif ("wholesome" in message_object.text.lower() or "cute" in message_object.text.lower()) and str(author_id) != my_id:
+            r = requests.get("https://dog.ceo/api/breeds/image/random")
+            client.sendRemoteImage(
+                r.json()["message"],
+                message=Message(text="cute wholseome dog for you !! <3"),
                 thread_id=thread_id,
                 thread_type=thread_type,
             )
           
-client = InfractionClient("neuralnetmemes@gmail.com", "infractionBot")
+client = InfractionClient("kklmao@keshlabs.in", "hahakklmao")
 client.listen()
 
 

@@ -1,6 +1,6 @@
-Ayesha: 5
-Keshu: 2
-Nickel: 0
+Ayesha: 9
+Keshu: 3
+Nickel: 1
 Deba: 0
 Gaby: 0
 Magnus: 0

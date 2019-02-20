@@ -48,14 +48,13 @@ class InfractionClient(Client):
             client.send(Message(text="this is so sad alexa play despacito\nhttps://www.youtube.com/watch?v=kJQP7kiw5Fk"), thread_id=thread_id, thread_type=thread_type)
         elif "👀" in message_object.text and str(author_id) != "100033965962382":
             client.send(Message(text="👀"), thread_id=thread_id, thread_type=thread_type)
-        elif "cute" in message_object.text and str(author_id) != "100033965962382":
-            client.sendRemoteImage(
-                "https://inspirationseek.com/wp-content/uploads/2016/02/Cute-Kitten-Pics_20.jpg"
-            ,
-                message=Message(text="u are so cuute tooo!! <3"),
+        elif "cute" in message_object.text.lower() and str(author_id) != "100033965962382":
+            client.sendLocalImage(
+                "images/cute.jpg",
+                message=Message(text="awww you too!! <3"),
                 thread_id=thread_id,
                 thread_type=thread_type,
-                )
+            )
           
 client = InfractionClient("neuralnetmemes@gmail.com", "infractionBot")
 client.listen()

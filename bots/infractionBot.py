@@ -50,7 +50,7 @@ class InfractionClient(Client):
             client.send(Message(text="👀"), thread_id=thread_id, thread_type=thread_type)
         elif "cute" in message_object.text and str(author_id) != "100033965962382":
             client.sendRemoteImage(
-                "https://l.messenger.com/l.php?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft59.2708-21%2F19349798_238535726659016_502410280555249664_n.gif%3F_nc_cat%3D105%26_nc_oc%3DAQmCc0nPEZyrbxyeXep4A1LsnikgpQ6bXfT9cjUBIRGiOVtu2vHJ-r9iAQpUoifqDEG-6Yji8ojPT0lyYk2NwERK%26_nc_ht%3Dcdn.fbsbx.com%26oh%3D9a8b09253003b29a15cf91512fea89d6%26oe%3D5C6FC62F&h=AT1wjn_eGfR9gLRcmqNbwnyT2SQOayfurBLBH_njPzYY1Ttlc84LhtZ5YnndkotsUaXEUhgUW7UFWklRCAAnEctaovTTPrC7NF8CHjAvVfzRes8ba5h0uUFXmqvh6RLd9GHiM9_aQNA"
+                "https://inspirationseek.com/wp-content/uploads/2016/02/Cute-Kitten-Pics_20.jpg"
             ,
                 message=Message(text="u are so cuute tooo!! <3"),
                 thread_id=thread_id,
